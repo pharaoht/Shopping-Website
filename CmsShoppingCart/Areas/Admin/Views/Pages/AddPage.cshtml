@@ -12,12 +12,12 @@
     </div>
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -26,8 +26,8 @@
             <div class="col-md-10">
                 <!--EditorFor are text boxes-->                                                <!--Form control is a bootstrap class-->
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-               <!--Each form passed, has to pass validation-->
-               @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                <!--Each form passed, has to pass validation-->
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -68,3 +68,10 @@
 <div>
     @Html.ActionLink("Back to Pages", "Index")
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Body");
+    </script>
+}

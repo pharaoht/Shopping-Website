@@ -34,6 +34,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
         {
             return View();
         }
+
         //Post: Admin/Pages/AddPage
         [HttpPost]
         public ActionResult AddPage(PageVM model)
@@ -92,6 +93,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
 
         }
+
         //Get:Admin/Pages/EditPage/Id
         [HttpGet]
         public ActionResult EditPage(int id)
@@ -169,6 +171,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             //Redirect
             return RedirectToAction("EditPage");
         }
+
         //Get:Admin/Pages/PageDetails/id
         public ActionResult PageDetails(int id)
         {
@@ -192,6 +195,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             //Return the view model
             return View(model);
         }
+
         //Get:Admin/Pages/DeletePageIid
         public ActionResult DeletePage(int id)
         {
@@ -255,6 +259,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             //Return view with Model
             return View(model);
         }
+
         //Post: Admin/Pages/EditSidebar
         [HttpPost]
         public ActionResult EditSidebar(SidebarVM model)
