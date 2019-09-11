@@ -169,7 +169,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             //Redirect
             return RedirectToAction("EditPage");
         }
-
+        //Get:Admin/Pages/PageDetails/id
         public ActionResult PageDetails(int id)
         {
             //Declare PageVm
@@ -191,6 +191,49 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
             //Return the view model
             return View(model);
+        }
+        //Get:Admin/Pages/DeletePageIid
+        public ActionResult DeletePage(int id)
+        {
+            using (Db db = new Db())
+            {
+                //Get the page
+                PageDTO dto = db.Pages.Find(id);
+
+                //remove the page
+                db.Pages.Remove(dto);
+
+                //save
+                db.SaveChanges();
+                
+
+
+            }
+            //redirect
+            return RedirectToAction("Index");
+        }
+
+        //Post: Admin/Pages/ReorderPages
+        [HttpPost]
+        public void ReorderPages(int[] id)
+        {
+            using (Db db = new Db())
+            {
+                //set initial count
+                int count = 1;
+                //Declare PageDto
+                PageDTO dto;
+                //Set sorting for each
+                foreach (var pageid in id)
+                {
+                    dto = db.Pages.Find(pageid);
+                    dto.Sorting = count;
+                    db.SaveChanges();
+
+                    count++;
+                }
+            }
+            
         }
     }
 }
