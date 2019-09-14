@@ -11,5 +11,6 @@ namespace CmsShoppingCart.Areas.Admin.Models
     {
         public DbSet<PageDTO> Pages { get; set; }
         public DbSet<SidebarDTO> Sidebar { get; set; }
+        public DbSet<CategoryDTO> Categories { get; set; }
     }
 }
