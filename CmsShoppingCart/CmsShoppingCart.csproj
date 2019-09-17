@@ -132,11 +132,13 @@
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
     <Compile Include="Areas\Admin\Models\Data\CategoryDTO.cs" />
     <Compile Include="Areas\Admin\Models\Data\PageDTO.cs" />
+    <Compile Include="Areas\Admin\Models\Data\ProductDTO.cs" />
     <Compile Include="Areas\Admin\Models\Data\SidebarDTO.cs" />
     <Compile Include="Areas\Admin\Models\Db.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\PageVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\SidebarVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Shop\CategoryVM.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\Shop\ProductVM.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -470,6 +472,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="Areas\Admin\Views\Shop\Categories.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\AddProduct.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
