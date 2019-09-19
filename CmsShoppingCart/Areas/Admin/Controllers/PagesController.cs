@@ -20,7 +20,10 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 //Init the list
-                pagesList = db.Pages.ToArray().OrderBy(x => x.Sorting).Select(x => new PageVM(x)).ToList();
+                pagesList = db.Pages.ToArray() //Linq
+                    .OrderBy(x => x.Sorting)
+                    .Select(x => new PageVM(x))
+                    .ToList();
 
             }
             //Return view with list

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using CmsShoppingCart.Areas.Admin.Models;
 using CmsShoppingCart.Areas.Admin.Models.Data;
 using CmsShoppingCart.Areas.Admin.Models.ViewModels.Shop;
-
+using PagedList;
 
 namespace CmsShoppingCart.Areas.Admin.Controllers
 {
@@ -27,7 +27,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 categoryVMList = db.Categories
                     .ToArray()
                     .OrderBy(x => x.Sorting)
-                    .Select((x => new CategoryVM(x)))
+                    .Select(x => new CategoryVM(x))
                     .ToList();
 
             }
@@ -280,7 +280,65 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
 
          }
 
+        //GET: Admin/Shop/Products
+         public ActionResult Products(int? page, int? catId)
+         {
+            //Declare a list of ProductVM
+            List<ProductVM> listOfProductVM;
 
+            //Set page number
+            var pageNumber = page ?? 1;
+
+            using (Db db = new Db())
+            {
+                //Init the list
+                listOfProductVM = db.Products.ToArray()
+                    .Where(x => catId == null || catId == 0 || x.CategoryId == catId)
+                    .Select(x => new ProductVM(x))
+                    .ToList();
+                //Populate categories select list
+                ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+
+                //Set selected category
+                ViewBag.SelectedCat = catId.ToString();
+
+            }
+            //Set pagination 
+            var onePageOfProducts = listOfProductVM.ToPagedList(pageNumber, 3);
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+
+            //Return view with list
+            return View(listOfProductVM);
+         }
+        //GET: Admin/Shop/Products
+        public ActionResult EditProduct(int id)
+        {
+            //Declare productVM
+            ProductVM model;
+
+            using (Db db = new Db())
+            {
+                //Get the product
+                ProductDTO dto = db.Products.Find(id);
+                //Make sure product exists
+                if(dto == null)
+                {
+                    return Content("That product does not exist.");
+                }
+                //init model
+                model = new ProductVM(dto);
+                //Make a select list
+                model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+                //Get all gallery images
+                model.GalleryImages =
+                    Directory.EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/" + id + "/Gallery/Thumbs"))
+                        .Select(fn => Path.GetFileName(fn));
+
+            }
+
+            //Return view with model
+            return View(model);
+        }
 
     }
 }

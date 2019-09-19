@@ -172,17 +172,17 @@ else
          * Rename category
          */
         var originalTextBoxValue;
-        $("tables#pages input.text-box").dblclick(function() {
+        $("table#pages input.text-box").dblclick(function() {
             originalTextBoxValue = $(this).val();
             $(this).attr("readonly", false);
         });
-        $("tables#pages input.text-box").keyup(function(e) {
+        $("table#pages input.text-box").keyup(function(e) {
             if (e.keyCode == 13) {
                 $(this).blur();
             }
         });
 
-        $("tables#pages input.text-box").blur(function() {
+        $("table#pages input.text-box").blur(function() {
             var $this = $(this);
             var ajaxdiv = $this.parent().find(".ajaxdivtd");
             var newCatName = $this.val();
