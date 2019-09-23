@@ -65,7 +65,6 @@ C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\bin\Newtons
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\bin\Antlr3.Runtime.pdb
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\obj\Debug\CmsShoppingCart.csprojAssemblyReference.cache
-C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\obj\Debug\CmsShoppingCart.csproj.CoreCompileInputs.cache
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\obj\Debug\CmsShoppingCart.csproj.CopyComplete
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\obj\Debug\CmsShoppingCart.dll
 C:\Users\Pharaoh Manson\source\repos\CmsShoppingCart\CmsShoppingCart\obj\Debug\CmsShoppingCart.pdb
