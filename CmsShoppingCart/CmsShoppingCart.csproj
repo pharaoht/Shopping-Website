@@ -164,6 +164,7 @@
     <Content Include="Content\bootstrapCerulean.css" />
     <Content Include="Content\bootstrapdark.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\Uploads\greyveck.jfif" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fileman\css\images\animated-overlay.gif" />

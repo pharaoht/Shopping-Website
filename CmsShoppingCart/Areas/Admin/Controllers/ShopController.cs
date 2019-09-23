@@ -36,7 +36,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
         }
         //Post: Admin/Shop/AddNewCategory
         [HttpPost]
-         public string AddNewCategory(string catName)
+         public string AddNewCategory(string catName) 
          {
             //Declare id
             string  id;
