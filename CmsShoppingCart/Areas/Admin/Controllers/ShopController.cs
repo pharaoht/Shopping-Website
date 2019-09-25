@@ -217,18 +217,18 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 Directory.CreateDirectory(pathString1);
 
             if(!Directory.Exists(pathString2))
-            Directory.CreateDirectory(pathString2);
+                Directory.CreateDirectory(pathString2);
 
             if(!Directory.Exists(pathString3))
-            Directory.CreateDirectory(pathString3);
+                Directory.CreateDirectory(pathString3);
 
             if(!Directory.Exists(pathString4))
-            Directory.CreateDirectory(pathString4);
+                Directory.CreateDirectory(pathString4);
 
-           if(!Directory.Exists(pathString5))
-            Directory.CreateDirectory(pathString5);
+            if(!Directory.Exists(pathString5))
+                Directory.CreateDirectory(pathString5);
 
-             //check if a file was uploaded
+            //check if a file was uploaded
             if (file != null && file.ContentLength > 0)
             {
                 //Get file extension
@@ -261,9 +261,8 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 }
 
                     //Set original and thumb image paths
-                    var path = string.Format("{0}\\{1}", pathString2, imageName);
-                    var path2 = string.Format("{0}\\{1}", pathString3, imageName);
-
+                    var path = string.Format("{0}\\{1}", pathString2, imageName);//2
+                    var path2 = string.Format("{0}\\{1}", pathString3, imageName);//3
                     //Save original 
                     file.SaveAs(path);
                     //Create and save thumb
@@ -296,6 +295,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     .Where(x => catId == null || catId == 0 || x.CategoryId == catId)
                     .Select(x => new ProductVM(x))
                     .ToList();
+
                 //Populate categories select list
                 ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
 
@@ -394,6 +394,64 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             TempData["SM"] = "You have edited the product!";
 
             #region Image Upload
+            //Check for file upload
+            if (file != null && file.ContentLength > 0)
+            {
+                //Get extenstion 
+                string ext = file.ContentType.ToLower();
+
+                //Verify extension
+                if (ext != "image/jpg" &&
+                    ext != "image/jpeg" &&
+                    ext != "image/pjpeg" &&
+                    ext != "image/gif" &&
+                    ext != "image/x-png" &&
+                    ext != "image/png")
+                {
+                    using (Db db = new Db())
+                    {
+                        ModelState.AddModelError("", "The image was not uploaded - wrong image extension.");
+                        return View(model);
+                    }
+                }
+                //Set upload directory paths
+                var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+
+                var pathString1 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString());
+                var pathString2 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString() + "\\Thumbs");
+
+                //Delete files from directories 
+                DirectoryInfo di1 = new DirectoryInfo(pathString1);
+                DirectoryInfo di2 = new DirectoryInfo(pathString2);
+
+                foreach (FileInfo file2 in di1.GetFiles())
+                    file2.Delete();
+
+                foreach (FileInfo file3 in di2.GetFiles())
+                    file3.Delete();
+
+                //Save image name 
+                string imageName = file.FileName;
+
+                using (Db db = new Db())
+                {
+                    ProductDTO dto = db.Products.Find(id);
+                    dto.ImageName = imageName;
+
+                    db.SaveChanges();
+                }
+
+                //Save original and thumb images
+                var path = string.Format("{0}\\{1}", pathString1, imageName);
+                var path2 = string.Format("{0}\\{1}", pathString2, imageName);
+
+                //Save original 
+                file.SaveAs(path);
+                //Create and save thumb
+                WebImage img = new WebImage(file.InputStream);
+                img.Resize(200, 200);
+                img.Save(path2);
+            }
 
             #endregion
 
@@ -401,5 +459,59 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
             return RedirectToAction("EditProduct");
         }
 
+        //GET: Admin/Shop/DeleteProduct/id
+        public ActionResult DeleteProduct(int id)
+        {
+            //Delete product from DB
+            using (Db db = new Db())
+            {
+                ProductDTO dto = db.Products.Find(id);
+                db.Products.Remove(dto);
+
+                db.SaveChanges();
+            }
+            //Delete Product folder
+            var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+
+            string pathString = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString());
+
+            if(Directory.Exists(pathString))
+                Directory.Delete(pathString, true);
+
+            //Redirect
+            return RedirectToAction("Products");
+        }
+
+        //Post: Admin/Shop/SaveGalleryImages/id
+        [HttpPost]
+        public void SaveGalleryImages(int id)
+        {
+            //Loop through files
+            foreach (string fileName in Request.Files)
+            {
+                //Init the file
+                HttpPostedFileBase file = Request.Files[fileName];
+
+
+                //Check it's not files
+                if (file != null && file.ContentLength > 0)
+                {
+                    //Set directory paths
+                    var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+
+                    string pathString1 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery");
+                    string pathString2 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery\\Thumbs");
+
+                    //set image paths
+                    var path = string.Format("{0}\\{1}", pathString1, fileName);
+                    var path2 = string.Format("{0}\\{1}", pathString2, fileName);
+                    //Save original and thumb
+                    file.SaveAs(path);
+                    WebImage img = new WebImage(file.InputStream);
+                    img.Resize(200, 200);
+                    img.Save(path2);
+                }
+            }
+        }
     }
 }

@@ -24,8 +24,8 @@
         }
     }
 </select>
-<br />
-<br />
+<br /><br />
+
 
 <p>
     @Html.ActionLink("Add New Product", "AddProduct")
@@ -70,7 +70,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditProduct", new { id = product.Id }) |
-                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.Id })
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.Id }, new { @class = "delete" } )
             </td>
         </tr>
 
@@ -103,19 +103,13 @@
                     return false;
                 });
 
-
-
-
-
-
-
             /*
-             * Confirm pages deletion
+             * Confirm product deletion
              */
 
 
             $("a.delete").click(function () {
-                if (!confirm("Confirm page deletion")) return false;
+                if (!confirm("Confirm product deletion")) return false;
             });
             ////////////////////////////////////////////////////////
 
