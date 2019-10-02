@@ -24,7 +24,8 @@
         }
     }
 </select>
-<br /><br />
+<br />
+<br />
 
 
 <p>
@@ -36,17 +37,17 @@
             Name
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>*@
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>*@
         <th>
             Description
         </th>
         <th>
             Price
         </th>
-        @*<th>
-            ImageName
-        </th>*@
+        <th>
+
+        </th>
         <th></th>
     </tr>
 
@@ -61,7 +62,7 @@
                 @product.Description
             </td>
             <td>
-                $@product.Price
+                $@product.Price.99
             </td>
             <td>
                 <a href="/admin/shop/EditProduct/@product.Id">
@@ -70,7 +71,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditProduct", new { id = product.Id }) |
-                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.Id }, new { @class = "delete" } )
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = product.Id }, new { @class = "delete" })
             </td>
         </tr>
 
@@ -78,7 +79,18 @@
 
 </table>
 
+<style>
+    .pagination a {
+       
+        font-size: 22px;
+        color: lightgreen;
+        padding: 8px 16px;
+        margin: 0 4px;
+    }
+
+</style>
 @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Products", new { page, catId = ViewBag.SelectedCat }))
+
 
 
 
@@ -94,7 +106,7 @@
              */
 
             $("#SelectCategory").on("change",
-                function() {
+                function () {
                     var url = $(this).val();
 
                     if (url) {

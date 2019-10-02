@@ -505,6 +505,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     //set image paths
                     var path = string.Format("{0}\\{1}", pathString1, fileName);
                     var path2 = string.Format("{0}\\{1}", pathString2, fileName);
+
                     //Save original and thumb
                     file.SaveAs(path);
                     WebImage img = new WebImage(file.InputStream);
@@ -512,6 +513,22 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                     img.Save(path2);
                 }
             }
+        }
+
+
+        //Post: Admin/Shop/DeleteImage
+        [HttpPost]
+        public void DeleteImage(int id, string imageName)
+        {
+            string fullPath1 = Request.MapPath("~/Image/Uploads/Products/" + id.ToString() + "/Gallery/" + imageName);
+            string fullPath2 = Request.MapPath("~/Image/Uploads/Products/" + id.ToString() + "/Gallery/Thumbs/" + imageName);
+
+            if (System.IO.File.Exists(fullPath1))
+                System.IO.File.Delete(fullPath1);
+
+            if (System.IO.File.Exists(fullPath2))
+                System.IO.File.Delete(fullPath2);
+
         }
     }
 }
