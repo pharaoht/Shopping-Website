@@ -21,3 +21,12 @@ table.sorting.categories td {
 .ajaxdivtd {
     position: absolute;
 }
+/*.table{ /*border: 1px solid !important;*/}
+.table thead tr th{ text-align: center;}
+
+.table-container {
+    /*display: block;
+    width: 100%;
+    margin: auto;
+    justify-items: center;*/*/
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,7 +34,7 @@ namespace CmsShoppingCart.Controllers
             //Return partial with list
             return PartialView(categoryVMList);
         }
-
+        //Get: /shop/category/name
         public ActionResult Category(string name)
         {
             //Declare a list of ProductVM
@@ -45,19 +46,22 @@ namespace CmsShoppingCart.Controllers
                 CategoryDTO categoryDTO = db.Categories
                     .Where(x => x.Slug == name)
                     .FirstOrDefault();
-                int catId = categoryDTO.Id;
+                
+                
+                    int catId = categoryDTO.Id;
 
-                //Init the list
-                productVMList = db.Products
-                    .ToArray()
-                    .Where(x => x.CategoryId == catId)
-                    .Select(x => new ProductVM(x))
-                    .ToList();
-                //Get category name
-                var productCat = db.Products
-                    .Where(x => x.CategoryId == catId)
-                    .FirstOrDefault();
-                ViewBag.CategoryName = productCat.CategoryName;
+                    //Init the list
+                    productVMList = db.Products
+                        .ToArray()
+                        .Where(x => x.CategoryId == catId)
+                        .Select(x => new ProductVM(x))
+                        .ToList();
+                    //Get category name
+                    var productCat = db.Products
+                        .Where(x => x.CategoryId == catId)
+                        .FirstOrDefault();
+                    ViewBag.CategoryName = productCat.CategoryName;
+                
             }
             //return view with list
             return View(productVMList);

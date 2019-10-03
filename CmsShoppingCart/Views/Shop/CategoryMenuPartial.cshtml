@@ -1,24 +1,21 @@
 ﻿@model IEnumerable<CmsShoppingCart.Areas.Admin.Models.ViewModels.Shop.CategoryVM>
 
-
-    <table class="table">
-        <th>
-            Categories
-        </th>
-            @foreach (var item in Model)
-            {
+@*<div class="table-container">*@
+    <table class="table"style="text-align: center !important; margin: auto !important;">
+        <thead>
+            <tr>
                 <th>
-
+                    Categories
                 </th>
-                <th>
-
-                </th>
-                <th>
-
-                </th>
-                <th>
-                    <a href="/shop/category/@item.Slug.ToLower()">@item.Name</a>
-                </th>
-            }
-           
+                @foreach (var item in Model)
+                {
+                    <th>
+                        <a href="/shop/category/@item.Slug.ToLower()">@item.Name</a>
+                    </th>
+                }
+            </tr>
+        </thead>
     </table>
+@*</div>*@ 
+
+

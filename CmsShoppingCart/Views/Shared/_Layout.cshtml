@@ -11,39 +11,34 @@
     <div class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <div class="navbar-header">
-                <button class="btn btn-primary" type="button">@Html.ActionLink("Dashboard", "Index", "Dashboard", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <button class="btn btn-primary" type="button">@Html.ActionLink("Freedom of Expression Co.", "Index", "Dashboard", new { area = "" }, new { @class = "navbar-brand" })</button>
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <button class="btn btn-primary" type="button">@Html.ActionLink("Home", "PagesMenuPartial", "Pages")</button>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services-test">Services</a>
                     </li>
                     <li>
-                        <button class="btn btn-primary" type="button">@Html.ActionLink("Categories", "CategoryMenuPartial", "Shop")</button>
+                        <a class="nav-link" href="/about-us-test">About us</a>
                     </li>
                     <li>
-                        <button class="btn btn-primary" type="button">@Html.ActionLink("Products", "Products", "Shop")</button>
-                    </li>
-                    <li>
-                        
-                    </li>
 
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-md-2">
-        @Html.Action("CategoryMenuPartial", "Shop")
-    </div>
+       @*  <div class="col-xs-12 col-md-2">*@
+            @Html.Action("CategoryMenuPartial", "Shop")
+        @*</div>*@
 
-    @Html.Action("PagesMenuPartial", "Pages")
+    @*@Html.Action("PagesMenuPartial", "Pages")*@
 
     <div class="container body-content">
-
-
-
-
 
         <div class="row">
 
