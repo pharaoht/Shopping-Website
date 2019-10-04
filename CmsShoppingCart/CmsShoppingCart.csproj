@@ -537,6 +537,14 @@
     <Content Include="Images\Uploads\Products\19\Thumbs\ba-bluehoodie.png" />
     <Content Include="Images\Uploads\Products\1\blue crew shirts.jpeg" />
     <Content Include="Images\Uploads\Products\1\Thumbs\blue crew shirts.jpeg" />
+    <Content Include="Images\Uploads\Products\20\bahat.jpg" />
+    <Content Include="Images\Uploads\Products\20\Thumbs\bahat.jpg" />
+    <Content Include="Images\Uploads\Products\21\bashoes.jpg" />
+    <Content Include="Images\Uploads\Products\21\Thumbs\bashoes.jpg" />
+    <Content Include="Images\Uploads\Products\22\bakhaki.png" />
+    <Content Include="Images\Uploads\Products\22\Thumbs\bakhaki.png" />
+    <Content Include="Images\Uploads\Products\24\babed.png" />
+    <Content Include="Images\Uploads\Products\24\Thumbs\babed.png" />
     <Content Include="Images\Uploads\Products\3\greyveck.jfif" />
     <Content Include="Images\Uploads\Products\3\Thumbs\greyveck.jfif.jpeg" />
     <Content Include="Images\Uploads\Products\4\greyveck.jfif" />
@@ -1026,6 +1034,10 @@
     <Folder Include="Images\Uploads\Products\18\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\19\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\1\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\20\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\21\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\22\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\24\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\2\Gallery\" />
     <Folder Include="Images\Uploads\Products\3\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\4\Gallery\Thumbs\" />

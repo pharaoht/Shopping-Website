@@ -497,7 +497,7 @@ namespace CmsShoppingCart.Areas.Admin.Controllers
                 if (file != null && file.ContentLength > 0)
                 {
                     //Set directory paths
-                    var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
+                    var originalDirectory = new DirectoryInfo(string.Format("{0}\\Images\\Uploads", Server.MapPath(@"\")));
                     string pathString1 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery");
                     string pathString2 = Path.Combine(originalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery\\Thumbs");
 
