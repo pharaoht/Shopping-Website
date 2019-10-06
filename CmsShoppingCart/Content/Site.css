@@ -21,7 +21,7 @@ table.sorting.categories td {
 .ajaxdivtd {
     position: absolute;
 }
-/*.table{ /*border: 1px solid !important;*/}
+/*.table{ /*border: 1px solid !important;*/
 .table thead tr th{ text-align: center;}
 
 .table-container {
@@ -36,4 +36,28 @@ table.sorting.categories td {
     color: lightgreen;
     padding: 8px 16px;
     margin: 0 4px;
+}
+
+span.loader {
+    display: none;
+}
+span.ajaxmsg {
+    background: green;
+    color: white;
+    padding: 10px;
+    display: none;
+    position: absolute;
+}
+
+.ajaxcart {
+    position: relative;
+    right: -190px !important;
+    top: 5px;
+
+}
+.div navbar-collapse.collapse {
+    padding: 30px !important;
+}
+.div container {
+    padding: 40px !important;
 }

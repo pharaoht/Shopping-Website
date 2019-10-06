@@ -1,0 +1,19 @@
+﻿@model CmsShoppingCart.Areas.Admin.Models.ViewModels.Cart.CartVM
+
+
+
+<style>
+    .ajaxcart {
+        position: relative;
+        right: -500px !important;
+        top: 5px;
+
+    }
+</style>
+<div class="ajaxcart" style="color: white;">
+    Your cart: @Model.Quantity item(s) - $@Model.Price
+    <br/>
+    @Html.ActionLink("Checkout", "Index")
+    
+
+</div>

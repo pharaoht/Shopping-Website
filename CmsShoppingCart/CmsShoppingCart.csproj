@@ -141,10 +141,12 @@
     <Compile Include="Areas\Admin\Models\Data\ProductDTO.cs" />
     <Compile Include="Areas\Admin\Models\Data\SidebarDTO.cs" />
     <Compile Include="Areas\Admin\Models\Db.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\Cart\CartVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\PageVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\SidebarVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Shop\CategoryVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Shop\ProductVM.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,6 +238,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrapCerulean.css" />
     <Content Include="Content\bootstrapdark.css" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox_buttons.png" />
+    <Content Include="Content\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\jquery.fancybox-buttons.css" />
+    <Content Include="Content\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fileman\css\images\animated-overlay.gif" />
@@ -983,6 +995,12 @@
     <Content Include="Scripts\jquery-3.4.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\jquery.fancybox-media.js" />
+    <Content Include="Scripts\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1021,6 +1039,8 @@
     <Content Include="Views\Shop\CategoryMenuPartial.cshtml" />
     <Content Include="Views\Pages\SidebarPartial.cshtml" />
     <Content Include="Views\Shop\Category.cshtml" />
+    <Content Include="Views\Shop\ProductDetails.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fileman\aspnet_client\system_web\2_0_50727\" />
