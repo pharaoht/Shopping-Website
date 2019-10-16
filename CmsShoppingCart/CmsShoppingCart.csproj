@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +36,19 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,7 +154,7 @@
     <Compile Include="Areas\Admin\Models\Data\ProductDTO.cs" />
     <Compile Include="Areas\Admin\Models\Data\SidebarDTO.cs" />
     <Compile Include="Areas\Admin\Models\Db.cs" />
-    <Compile Include="Areas\Admin\Models\ViewModels\Cart\CartVM.cs" />
+    <Compile Include="Models\Cart\CartVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\PageVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Pages\SidebarVM.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\Shop\CategoryVM.cs" />
@@ -557,6 +570,10 @@
     <Content Include="Images\Uploads\Products\22\Thumbs\bakhaki.png" />
     <Content Include="Images\Uploads\Products\24\babed.png" />
     <Content Include="Images\Uploads\Products\24\Thumbs\babed.png" />
+    <Content Include="Images\Uploads\Products\25\babaspider.jpg" />
+    <Content Include="Images\Uploads\Products\25\Thumbs\babaspider.jpg" />
+    <Content Include="Images\Uploads\Products\26\bacweater.png" />
+    <Content Include="Images\Uploads\Products\26\Thumbs\bacweater.png" />
     <Content Include="Images\Uploads\Products\3\greyveck.jfif" />
     <Content Include="Images\Uploads\Products\3\Thumbs\greyveck.jfif.jpeg" />
     <Content Include="Images\Uploads\Products\4\greyveck.jfif" />
@@ -1060,13 +1077,14 @@
     <Folder Include="Images\Uploads\Products\21\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\22\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\24\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\25\Gallery\Thumbs\" />
+    <Folder Include="Images\Uploads\Products\26\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\2\Gallery\" />
     <Folder Include="Images\Uploads\Products\3\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\4\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\5\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\7\" />
     <Folder Include="Images\Uploads\Products\8\Gallery\Thumbs\" />
-    <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

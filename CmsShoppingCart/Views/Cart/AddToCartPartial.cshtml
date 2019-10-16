@@ -1,9 +1,7 @@
-﻿@model CmsShoppingCart.Areas.Admin.Models.ViewModels.Cart.CartVM
-
+﻿@model CmsShoppingCart.Models.Cart.CartVM
 
 Your cart: @Model.Quantity item(s) - $@Model.Price
 <br />
-@Html.ActionLink("Checkout", "Index")
 
+@Html.ActionLink("Checkout", "AddToCartPartial")
 
-    

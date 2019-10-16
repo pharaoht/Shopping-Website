@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
 using CmsShoppingCart.Areas.Admin.Models;
 using CmsShoppingCart.Areas.Admin.Models.Data;
-using CmsShoppingCart.Areas.Admin.Models.ViewModels.Cart;
+using CmsShoppingCart.Models.Cart;
 
 namespace CmsShoppingCart.Controllers
 {

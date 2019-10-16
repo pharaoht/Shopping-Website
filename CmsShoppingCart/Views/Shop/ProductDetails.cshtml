@@ -1,4 +1,6 @@
-﻿@model CmsShoppingCart.Areas.Admin.Models.ViewModels.Shop.ProductVM
+﻿
+@model CmsShoppingCart.Areas.Admin.Models.ViewModels.Shop.ProductVM
+
 
 @{
     ViewBag.Title = Model.Name;
@@ -20,10 +22,12 @@
         <br />
 
         <div class="addtocart">
-            <a href="#" class="addtocart">Add to cart</a>
-            <span class="loader">
-            </span>
-            <span class="ajaxmsg">The product has been added to your cart.</span>
+            <a href="#" class="addtocart">
+                Add to cart
+                <span class="loader">
+                </span>
+                <span class="ajaxmsg">The product has been added to your cart.</span>
+            </a>
         </div>
 
     </div>
@@ -72,9 +76,10 @@
              * Add to cart
              */
             $("a.addtocart").click(function(e) {
-                e.preventDefault();
+               e.preventDefault();
 
                 $("span.loader").addClass("ib");
+
 
                 var url = "/cart/AddToCartPartial";
 
@@ -88,8 +93,7 @@
                     setTimeout(function() {
                             $("span.ajaxmsg").fadeout("fast");
                             $("span.ajaxmsg").removeClass("ib");
-                        },
-                        1000);
+                        }, 1000);
 
                 });
             });
